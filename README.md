@@ -1,29 +1,45 @@
 # ROSSUM CAM Operating Playbook
 
-A self-contained operating manual for the Commercial Account Manager seat at Rossum — grammar, competencies, worked knot library, and reference shelf.
+A React-powered operating manual for the Commercial Account Manager seat at Rossum — grammar, competencies, worked knot library, and reference shelf.
 
-Open `index.html` locally in a browser, or deploy to Vercel (see below).
+## Stack
 
-## Local preview
+- **React 19** + **TypeScript**
+- **Vite** for dev and production builds
+- Deploys to **Vercel** with zero config
+
+## Local development
 
 ```bash
-python3 -m http.server 8080
-# open http://localhost:8080
+npm install
+npm run dev
 ```
+
+Open [http://localhost:5173](http://localhost:5173).
 
 ## Deploy on Vercel
 
-1. Push this repo to GitHub.
-2. In [Vercel](https://vercel.com), **Add New Project** → import `RadGry/ROSSUM-CAM-PLAYBOOK`.
-3. Framework preset: **Other** (static site, no build step).
-4. Output directory: `.` (root).
-5. Deploy.
+1. Push to [GitHub](https://github.com/RadGry/ROSSUM-CAM-PLAYBOOK).
+2. Import the repo in [Vercel](https://vercel.com).
+3. Framework preset: **Vite** (auto-detected).
+4. Build command: `npm run build`
+5. Output directory: `dist`
 
-Vercel serves `index.html` at the site root automatically. No `vercel.json` or build command required.
+## Project structure
 
-## Structure
+```
+src/
+├── components/     # UI components (Sidebar, KnotsSection, etc.)
+├── data/           # Content as typed data (knots, competencies, primitives)
+├── App.tsx         # Page layout
+└── index.css       # Design system styles
+legacy/             # Original static HTML version
+```
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Full playbook (HTML + CSS, no JS) |
-| `CAM-Operating-Playbook.html` | Same content, kept for local editing by original filename |
+## What's improved over the static version
+
+- Mobile slide-out navigation with active section highlighting
+- Knot library search and verdict filtering
+- Component-based structure for easier content updates
+- OG/meta tags for sharing
+- Inter font + valid CSS font weights
